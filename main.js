@@ -17,7 +17,7 @@ let correctKeys = 0;
 let startDate = 0;
 let timer;
 let timerActive = false;
-let punctuation = false;
+let punctuation = true;
 
 // Get cookies
 getCookie('theme') === '' ? setTheme('light') : setTheme(getCookie('theme'));
