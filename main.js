@@ -245,6 +245,9 @@ document.addEventListener('keydown', e => {
     if (e.key === 't') {
       setTheme(inputField.value);
     }
+ if (e.key === 'w') {
+      setLanguage(inputField.value);
+    }
     // [mod + m] => Change the typing mode
     if (e.key === 'm') {
       setTypingMode(inputField.value);
@@ -293,9 +296,10 @@ function setLanguage(_lang) {
         randomWords = json[lang];
         setCookie('language', lang, 90);
 
-        if (lang === "arabic") {
-            textDisplay.style.direction = "rtl"
-            inputField.style.direction = "rtl"
+        if (lang === "hard") {
+            textDisplay.style.direction = "ltr"
+            inputField.style.direction = "ltr"
+            console.log("switched to hard");
         } else {
             textDisplay.style.direction = "ltr"
             inputField.style.direction = "ltr"
