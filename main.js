@@ -249,6 +249,7 @@ document.addEventListener('keydown', e => {
     }
  if (e.key === 'w') {
       setLanguage(wordlistType === 'english' ? 'hard' : 'english');
+      setLanguage(inputField.value);
     }
     // [mod + m] => Change the typing mode
     if (e.key === 'm') {
