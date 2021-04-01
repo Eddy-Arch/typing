@@ -4,6 +4,8 @@ const inputField = document.querySelector('#input-field');
 
 // Initialize typing mode variables
 let typingMode = 'wordcount';
+let wordlistType = 'english';
+let isPunc = 'false';
 let wordCount;
 let timeCount;
 
@@ -246,6 +248,7 @@ document.addEventListener('keydown', e => {
       setTheme(inputField.value);
     }
  if (e.key === 'w') {
+      setLanguage(wordlistType === 'english' ? 'hard' : 'english');
       setLanguage(inputField.value);
     }
     // [mod + m] => Change the typing mode
@@ -255,7 +258,7 @@ document.addEventListener('keydown', e => {
 
     // [mod + p] => Change punctuation active
     if (e.key === 'p') {
-      setPunctuation(inputField.value);
+      setPunctuation();
     }
   } else if (!document.querySelector('#theme-center').classList.contains('hidden')) {
     if (e.key === 'Escape'){
@@ -336,16 +339,14 @@ function setTypingMode(_mode) {
 }
 
 function setPunctuation(_punc) {
-  const punc = _punc.toLowerCase();
-  if (punc === 'true') {
+  if (!punctuation) {
     punctuation = true;
     setCookie('punctuation', true, 90);
-    setText();
-  } else if (punc === 'false') {
+  } else {
     punctuation = false;
     setCookie('punctuation', false, 90);
-    setText();
   }
+    setText();
 }
 
 function setWordCount(wc) {
