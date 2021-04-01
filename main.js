@@ -4,6 +4,8 @@ const inputField = document.querySelector('#input-field');
 
 // Initialize typing mode variables
 let typingMode = 'wordcount';
+let wordlistType = 'english';
+let isPunc = 'false';
 let wordCount;
 let timeCount;
 
@@ -245,6 +247,9 @@ document.addEventListener('keydown', e => {
     if (e.key === 't') {
       setTheme(inputField.value);
     }
+ if (e.key === 'w') {
+      setLanguage(wordlistType === 'english' ? 'hard' : 'english');
+    }
     // [mod + m] => Change the typing mode
     if (e.key === 'm') {
       setTypingMode(inputField.value);
@@ -252,7 +257,7 @@ document.addEventListener('keydown', e => {
 
     // [mod + p] => Change punctuation active
     if (e.key === 'p') {
-      setPunctuation(inputField.value);
+      setPunctuation();
     }
   } else if (!document.querySelector('#theme-center').classList.contains('hidden')) {
     if (e.key === 'Escape'){
@@ -293,9 +298,10 @@ function setLanguage(_lang) {
         randomWords = json[lang];
         setCookie('language', lang, 90);
 
-        if (lang === "arabic") {
-            textDisplay.style.direction = "rtl"
-            inputField.style.direction = "rtl"
+        if (lang === "hard") {
+            textDisplay.style.direction = "ltr"
+            inputField.style.direction = "ltr"
+            console.log("switched to hard");
         } else {
             textDisplay.style.direction = "ltr"
             inputField.style.direction = "ltr"
@@ -332,16 +338,14 @@ function setTypingMode(_mode) {
 }
 
 function setPunctuation(_punc) {
-  const punc = _punc.toLowerCase();
-  if (punc === 'true') {
+  if (!punctuation) {
     punctuation = true;
     setCookie('punctuation', true, 90);
-    setText();
-  } else if (punc === 'false') {
+  } else {
     punctuation = false;
     setCookie('punctuation', false, 90);
-    setText();
   }
+    setText();
 }
 
 function setWordCount(wc) {
