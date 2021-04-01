@@ -15,9 +15,11 @@ let wordList = [];
 let currentWord = 0;
 let correctKeys = 0;
 let startDate = 0;
+let hard = false;
 let timer;
 let timerActive = false;
 let punctuation = true;
+setLanguage('english');
 
 // Get cookies
 getCookie('theme') === '' ? setTheme('light') : setTheme(getCookie('theme'));
@@ -248,8 +250,14 @@ document.addEventListener('keydown', e => {
       setTheme(inputField.value);
     }
  if (e.key === 'w') {
-      setLanguage(wordlistType === 'english' ? 'hard' : 'english');
-      setLanguage(inputField.value);
+      if(hard){
+        setLanguage('english');
+      hard = false;
+      }else{
+        setLanguage('hard');
+        hard= true;
+      }
+      console.log(inputField.value);
     }
     // [mod + m] => Change the typing mode
     if (e.key === 'm') {
