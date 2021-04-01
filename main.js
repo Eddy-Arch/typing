@@ -245,11 +245,6 @@ document.addEventListener('keydown', e => {
     if (e.key === 't') {
       setTheme(inputField.value);
     }
-    // [mod + l] => Change the language
-    if (e.key === 'l') {
-      setLanguage(inputField.value);
-    }
-
     // [mod + m] => Change the typing mode
     if (e.key === 'm') {
       setTypingMode(inputField.value);
