@@ -8,3 +8,12 @@ you can run this locally by running
 ```python
 python -m http.server
 ```
+or by running
+```bash
+chmod +x server.py
+```
+
+```bash
+./server.py
+```
+
