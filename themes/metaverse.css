@@ -15,16 +15,16 @@ body {
 }
 
 #typing-area, #theme-area {
-  background: #333333;
+  background: transparent;
 }
 
 #text-display {
-  color: #e8e8e8;
+  color: #999999;
 }
 
 #input-field {
-  background: #1a1a1a;
-  color: #e8e8e8;
+  background: transparent;
+  color: #999999;
 }
 
 #input-field.wrong {
@@ -45,7 +45,7 @@ body {
 }
 
 .correct {
-  color: #fafafa;
+  color: #363636;
 }
 
 .wrong {
